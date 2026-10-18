@@ -1,0 +1,6 @@
+profile=tuned base_url=http://SERVER_IP k6=k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64) start=2026-10-16T22:46:45Z
+client nofile=1048576 ports=1024 65535
+conns      70000 users 5m    PASS p95=1ms p99=4ms errors=0% reqs=230255 rps=479
+conns     100000 users 5m    PASS p95=1ms p99=8ms errors=0% reqs=261659 rps=484
+conns     125000 users 5m    PASS p95=1ms p99=12ms errors=0% reqs=288137 rps=488
+CONNECTIONS held 125000 keep-alive connections for 5m within the thresholds (tried: 70000 100000 125000) end=2026-10-16T23:14:17Z

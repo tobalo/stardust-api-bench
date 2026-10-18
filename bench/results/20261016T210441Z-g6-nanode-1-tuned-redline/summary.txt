@@ -1,0 +1,9 @@
+profile=tuned base_url=http://SERVER_IP k6=k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64) start=2026-10-16T21:05:03Z
+client nofile=1048576 ports=1024 65535
+warmup      1000 users 2m    PASS p95=27ms p99=34ms errors=0% reqs=18312 rps=83
+search      2500 users 2m    PASS p95=29ms p99=45ms errors=0% reqs=45602 rps=207
+search      5000 users 2m    PASS p95=41ms p99=90ms errors=0% reqs=91339 rps=415
+search     10000 users 2m    FAIL(99) p95=1761ms p99=2308ms errors=0% reqs=176142 rps=800
+search      7500 users 2m    FAIL(99) p95=260ms p99=1196ms errors=0% reqs=136507 rps=620
+search      6250 users 2m    PASS p95=96ms p99=586ms errors=0% reqs=114126 rps=518
+search      6750 users 2m    PASS p95=181ms p99=934ms errors=0% reqs=122848 rps=558

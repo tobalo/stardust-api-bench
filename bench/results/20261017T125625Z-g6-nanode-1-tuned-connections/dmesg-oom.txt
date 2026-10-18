@@ -1,0 +1,7 @@
+# dmesg on the server after the 175,000-connection step (kernel OOM killer), and the service state
+[Sat Oct 17 13:31:26 2026] bash invoked oom-killer: gfp_mask=0x140cca(GFP_HIGHUSER_MOVABLE|__GFP_COMP), order=0, oom_score_adj=0
+[Sat Oct 17 13:31:26 2026] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/,mems_allowed=0,global_oom,task_memcg=/system.slice/stardust-bench.service,task=stardust-uring,pid=47144,uid=999
+[Sat Oct 17 13:31:26 2026] Out of memory: Killed process 47144 (stardust-uring) total-vm:4421212kB, anon-rss:35968kB, file-rss:256kB, shmem-rss:0kB, UID:999 pgtables:208kB oom_score_adj:0
+NRestarts=0
+ActiveState=failed
+MemAvailable:     758844 kB

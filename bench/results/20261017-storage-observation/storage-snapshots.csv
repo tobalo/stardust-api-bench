@@ -1,0 +1,3 @@
+phase,t,db_id,db_apparent_bytes,db_allocated_bytes,seed_apparent_bytes,seed_allocated_bytes,fs_available_bytes,svc_pid,svc_start_ticks,svc_write_bytes,svc_cancelled_write_bytes,svc_peak_rss_bytes
+observation,1792251192,2048:264203,4294967296,3138187264,4294967296,3898347520,38339657728,33692,282245,53972385792,0,560877568
+observation,1792251485,2048:264203,4294967296,3149488128,4294967296,3898347520,38328311808,33692,282245,55627546624,0,572051456

@@ -1,0 +1,3 @@
+label,users,hold,start,end,result,p95_ms,p99_ms,errors_pct,requests,rps,client_rx_kbps
+conns,275000,5m,1792356761,1792357384,PASS,8.73,39.72,0,600840,976.88,866.21
+conns,300000,5m,1792357504,1792358148,FAIL,0.99,15.72,79.46,627700,980.72,178.9

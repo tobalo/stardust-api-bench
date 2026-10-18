@@ -1,0 +1,27 @@
+# dmesg (OOM killer and TCP messages), the service state and socket counters, after the 400000 step
+[Sun Oct 18 22:27:42 2026] TCP: Hash tables configured (established 16384 bind 16384)
+[Sun Oct 18 22:36:36 2026] ring-0 invoked oom-killer: gfp_mask=0x140cca(GFP_HIGHUSER_MOVABLE|__GFP_COMP), order=0, oom_score_adj=0
+[Sun Oct 18 22:36:36 2026] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/,mems_allowed=0,global_oom,task_memcg=/user.slice/user-0.slice/user@0.service/init.scope,task=systemd,pid=729,uid=0
+[Sun Oct 18 22:36:36 2026] Out of memory: Killed process 729 (systemd) total-vm:20220kB, anon-rss:1920kB, file-rss:128kB, shmem-rss:0kB, UID:0 pgtables:80kB oom_score_adj:100
+[Sun Oct 18 22:36:36 2026] systemd invoked oom-killer: gfp_mask=0x140cca(GFP_HIGHUSER_MOVABLE|__GFP_COMP), order=0, oom_score_adj=0
+[Sun Oct 18 22:36:36 2026] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/,mems_allowed=0,global_oom,task_memcg=/user.slice/user-0.slice/user@0.service/init.scope,task=(sd-pam),pid=730,uid=0
+[Sun Oct 18 22:36:36 2026] Out of memory: Killed process 730 ((sd-pam)) total-vm:21160kB, anon-rss:1708kB, file-rss:0kB, shmem-rss:0kB, UID:0 pgtables:80kB oom_score_adj:100
+[Sun Oct 18 22:36:39 2026] systemd invoked oom-killer: gfp_mask=0x140cca(GFP_HIGHUSER_MOVABLE|__GFP_COMP), order=0, oom_score_adj=0
+[Sun Oct 18 22:36:39 2026] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/,mems_allowed=0,global_oom,task_memcg=/system.slice/stardust-bench.service,task=stardust-uring,pid=982,uid=999
+[Sun Oct 18 22:36:39 2026] Out of memory: Killed process 982 (stardust-uring) total-vm:4421212kB, anon-rss:48384kB, file-rss:256kB, shmem-rss:0kB, UID:999 pgtables:240kB oom_score_adj:0
+Result=oom-kill
+NRestarts=0
+ActiveState=failed
+MemAvailable:    1764424 kB
+SUnreclaim:        40132 kB
+sockets: used 122
+TCP: inuse 4 orphan 0 tw 0 alloc 5 mem 0
+UDP: inuse 2 mem 0
+UDPLITE: inuse 0
+RAW: inuse 0
+FRAG: inuse 0 memory 0
+TCP6: inuse 1
+UDP6: inuse 0
+UDPLITE6: inuse 0
+RAW6: inuse 1
+FRAG6: inuse 0 memory 0

@@ -1,0 +1,18 @@
+# dmesg (OOM killer and TCP messages), the service state and socket counters, after the 350000 step
+[Sun Oct 18 21:55:51 2026] TCP: Hash tables configured (established 16384 bind 16384)
+Result=success
+NRestarts=0
+ActiveState=active
+MemAvailable:    1580888 kB
+SUnreclaim:       138800 kB
+sockets: used 125
+TCP: inuse 4 orphan 0 tw 0 alloc 6 mem 0
+UDP: inuse 2 mem 0
+UDPLITE: inuse 0
+RAW: inuse 0
+FRAG: inuse 0 memory 0
+TCP6: inuse 2
+UDP6: inuse 0
+UDPLITE6: inuse 0
+RAW6: inuse 1
+FRAG6: inuse 0 memory 0

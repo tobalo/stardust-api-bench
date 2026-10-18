@@ -1,0 +1,15 @@
+profile=tuned base_url=http://SERVER_IP k6=k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64) start=2026-10-16T21:55:54Z
+client nofile=1048576 ports=1024 65535
+warmup      1000 users 2m    PASS p95=24ms p99=28ms errors=0% reqs=18270 rps=83
+search      2500 users 2m    PASS p95=25ms p99=32ms errors=0% reqs=45695 rps=207
+search      5000 users 2m    PASS p95=27ms p99=40ms errors=0% reqs=91550 rps=416
+search     10000 users 2m    PASS p95=43ms p99=74ms errors=0% reqs=182991 rps=831
+search     20000 users 2m    FAIL(99) p95=12032ms p99=20340ms errors=0.13% reqs=257735 rps=1171
+search     15000 users 2m    FAIL(99) p95=1665ms p99=1939ms errors=0% reqs=251190 rps=1141
+search     12500 users 2m    PASS p95=227ms p99=456ms errors=0% reqs=227451 rps=1033
+search     13750 users 2m    FAIL(99) p95=1263ms p99=1530ms errors=0% reqs=241154 rps=1096
+search     13000 users 2m    FAIL(99) p95=597ms p99=890ms errors=0% reqs=234050 rps=1063
+search     12750 users 2m    PASS p95=480ms p99=792ms errors=0% reqs=230667 rps=1048
+confirm    12750 users 5m    PASS p95=200ms p99=338ms errors=0% reqs=473295 rps=1183
+SCORE profile=tuned users=12750 (search: highest pass 12750, lowest fail 13000) end=2026-10-16T22:39:35Z
+== redline: past the limits, for the peak throughput and the breaking point

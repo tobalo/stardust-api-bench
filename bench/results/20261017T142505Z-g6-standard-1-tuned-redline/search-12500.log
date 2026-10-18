@@ -1,0 +1,42 @@
+
+
+  █ THRESHOLDS 
+
+    http_req_duration
+    ✗ 'p(95)<500' p(95)=1.25s
+    ✗ 'p(99)<1000' p(99)=1.66s
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 216285  983.061522/s
+    checks_succeeded...: 100.00% 216285 out of 216285
+    checks_failed......: 0.00%   0 out of 216285
+
+    ✓ feed 200
+    ✓ post 200
+    ✓ like 200/201
+    ✓ create 201
+
+    HTTP
+    http_req_duration..............: avg=542.72ms med=564ms  p(95)=1.25s  p(99)=1.66s max=2.51s 
+      { expected_response:true }...: avg=542.72ms med=564ms  p(95)=1.25s  p(99)=1.66s max=2.51s 
+    http_req_failed................: 0.00%  0 out of 216285
+    http_reqs......................: 216285 983.061522/s
+
+    EXECUTION
+    iteration_duration.............: avg=21.99s   med=21.98s p(95)=27.89s p(99)=29.9s max=36.35s
+    iterations.....................: 93363  424.354777/s
+    vus............................: 196    min=44          max=12500
+    vus_max........................: 12500  min=12500       max=12500
+
+    NETWORK
+    data_received..................: 397 MB 1.8 MB/s
+    data_sent......................: 21 MB  95 kB/s
+
+
+
+time="2026-10-17T14:51:25Z" level=error msg="thresholds on metrics 'http_req_duration' have been crossed"

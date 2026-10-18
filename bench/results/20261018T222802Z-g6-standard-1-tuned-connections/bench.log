@@ -1,0 +1,12 @@
+== connections over 10 server addresses
+== fresh database on SERVER_IP (g6-standard-1, tuned); client nofile 65536
+== k6 on the client Linode CLIENT_IP (Ctrl-C stops watching, not the run)
+Started stardust-k6.service - /usr/bin/bash bench/score.sh.
+profile=tuned base_url=http://SERVER_IP k6=k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64) start=2026-10-18T22:28:27Z
+client nofile=1048576 ports=1024 65535
+conns     400000 users 5m    FAIL(99) p95=19ms p99=27285ms errors=38.73% reqs=720550 rps=973
+the server stopped answering after 400000: stop
+400000 connections missed a threshold: stop
+CONNECTIONS held 0 keep-alive connections for 5m within the thresholds (tried: 400000) end=2026-10-18T22:40:52Z
+stardust-k6.service: Deactivated successfully.
+stardust-k6.service: Consumed 26min 2.574s CPU time.

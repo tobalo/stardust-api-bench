@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-10-17T15:36:10.364021+00:00",
+  "os": "Darwin",
+  "architecture": "arm64",
+  "inputs": {
+    "users.tsv": {
+      "apparent_bytes": 2482690,
+      "allocated_bytes": 2486272,
+      "sha256": "304767a5b65fd97d7a5a0abbdef4a063cfab99ff08bd045126de3ba53c139bb8",
+      "rows": 50000
+    },
+    "posts.tsv": {
+      "apparent_bytes": 83493309,
+      "allocated_bytes": 83496960,
+      "sha256": "693d608b9021baab866b2866fb2d950262fbd90e6fcef70aef10f5281d5c1293",
+      "rows": 500000
+    },
+    "likes.tsv": {
+      "apparent_bytes": 75709498,
+      "allocated_bytes": 75710464,
+      "sha256": "627c2d0aa7860a3a6e7788f700adc953e05fac967a5d9b5b21dcad06bd412b37",
+      "rows": 2016005
+    }
+  },
+  "tsv_bytes": 161685497,
+  "importer_sha256": "9bc549fe4c0d146ee886a94cc8e8aff4b81f66ca426b28747ff50bffa8a60a5d",
+  "import": {
+    "exit_code": 0,
+    "elapsed_seconds": 81.036865375,
+    "peak_rss_bytes": 7437336576,
+    "user_cpu_seconds": 74.552302,
+    "system_cpu_seconds": 3.758036
+  },
+  "database": {
+    "apparent_bytes": 4294967296,
+    "allocated_bytes": 3903275008,
+    "sha256": "063f544b3c11bfa3053acc76085ea82a1e51152c6c03cca4d3a59f153d96bf09"
+  }
+}

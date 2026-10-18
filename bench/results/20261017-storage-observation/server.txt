@@ -1,0 +1,6 @@
+plan=g6-standard-1
+MainPID=33692
+ExecMainStartTimestamp=Sat 2026-10-17 14:25:26 UTC
+ActiveState=active
+seed_archive_sha256=427365d8d972c08c9bf453c60e3a7f5a1f569acd0b9ceacb24473d60d10a3006
+Linux 6.8.0-134-generic

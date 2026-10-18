@@ -1,0 +1,7 @@
+== connections over 10 server addresses
+== fresh database on SERVER_IP (g6-standard-1, tuned); client nofile 65536
+== k6 on the client Linode CLIENT_IP (Ctrl-C stops watching, not the run)
+Started stardust-k6.service - /usr/bin/bash bench/score.sh.
+profile=tuned base_url=http://SERVER_IP k6=k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64) start=2026-10-18T20:36:52Z
+client nofile=1048576 ports=1024 65535
+ssh: connect to host CLIENT_IP port 22: Operation timed out

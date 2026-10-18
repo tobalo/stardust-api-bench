@@ -1,0 +1,34 @@
+# dmesg (OOM killer and TCP messages), the service state and socket counters, after the 375000 step
+[Sun Oct 18 22:11:34 2026] TCP: Hash tables configured (established 16384 bind 16384)
+[Sun Oct 18 22:24:24 2026] kswapd0: page allocation failure: order:0, mode:0x820(GFP_ATOMIC), nodemask=(null),cpuset=/,mems_allowed=0
+[Sun Oct 18 22:24:24 2026] kworker/0:0 invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=0
+[Sun Oct 18 22:24:24 2026] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/,mems_allowed=0,global_oom,task_memcg=/user.slice/user-0.slice/user@0.service/init.scope,task=systemd,pid=715,uid=0
+[Sun Oct 18 22:24:24 2026] Out of memory: Killed process 715 (systemd) total-vm:20220kB, anon-rss:1920kB, file-rss:128kB, shmem-rss:0kB, UID:0 pgtables:88kB oom_score_adj:100
+[Sun Oct 18 22:24:24 2026] bash invoked oom-killer: gfp_mask=0x140cca(GFP_HIGHUSER_MOVABLE|__GFP_COMP), order=0, oom_score_adj=0
+[Sun Oct 18 22:24:24 2026] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/,mems_allowed=0,global_oom,task_memcg=/user.slice/user-0.slice/user@0.service/init.scope,task=(sd-pam),pid=716,uid=0
+[Sun Oct 18 22:24:24 2026] Out of memory: Killed process 716 ((sd-pam)) total-vm:21164kB, anon-rss:1712kB, file-rss:0kB, shmem-rss:0kB, UID:0 pgtables:76kB oom_score_adj:100
+[Sun Oct 18 22:24:24 2026] systemd-journal invoked oom-killer: gfp_mask=0x140cca(GFP_HIGHUSER_MOVABLE|__GFP_COMP), order=0, oom_score_adj=-250
+[Sun Oct 18 22:24:24 2026] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/,mems_allowed=0,global_oom,task_memcg=/system.slice/stardust-bench.service,task=stardust-uring,pid=967,uid=999
+[Sun Oct 18 22:24:24 2026] Out of memory: Killed process 967 (stardust-uring) total-vm:4421212kB, anon-rss:47104kB, file-rss:256kB, shmem-rss:0kB, UID:999 pgtables:232kB oom_score_adj:0
+[Sun Oct 18 22:24:24 2026] systemd invoked oom-killer: gfp_mask=0x140cca(GFP_HIGHUSER_MOVABLE|__GFP_COMP), order=0, oom_score_adj=0
+[Sun Oct 18 22:24:24 2026] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/,mems_allowed=0,global_oom,task_memcg=/system.slice/haveged.service,task=haveged,pid=518,uid=0
+[Sun Oct 18 22:24:24 2026] Out of memory: Killed process 518 (haveged) total-vm:8632kB, anon-rss:3196kB, file-rss:128kB, shmem-rss:0kB, UID:0 pgtables:64kB oom_score_adj:0
+[Sun Oct 18 22:24:27 2026] systemd invoked oom-killer: gfp_mask=0x140cca(GFP_HIGHUSER_MOVABLE|__GFP_COMP), order=0, oom_score_adj=0
+[Sun Oct 18 22:24:27 2026] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/,mems_allowed=0,global_oom,task_memcg=/user.slice/user-0.slice/session-4.scope,task=sshd,pid=893,uid=0
+[Sun Oct 18 22:24:27 2026] Out of memory: Killed process 893 (sshd) total-vm:15232kB, anon-rss:2176kB, file-rss:128kB, shmem-rss:0kB, UID:0 pgtables:68kB oom_score_adj:0
+Result=oom-kill
+NRestarts=0
+ActiveState=failed
+MemAvailable:    1788024 kB
+SUnreclaim:        39592 kB
+sockets: used 122
+TCP: inuse 4 orphan 0 tw 0 alloc 5 mem 0
+UDP: inuse 2 mem 0
+UDPLITE: inuse 0
+RAW: inuse 0
+FRAG: inuse 0 memory 0
+TCP6: inuse 1
+UDP6: inuse 0
+UDPLITE6: inuse 0
+RAW6: inuse 1
+FRAG6: inuse 0 memory 0

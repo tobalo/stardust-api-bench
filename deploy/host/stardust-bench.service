@@ -1,0 +1,35 @@
+# The bench server. deploy/host/spinup.sh installs it. Every start serves a fresh copy
+# of the seed, so `systemctl restart stardust-bench` resets the database
+# before a scoring session.
+#   /opt/stardust-bench/bin/stardust-uring        server, Stardust linked in
+#   /var/lib/stardust-bench/seed/feed.stardust    seed (read-only to the run)
+#   /var/lib/stardust-bench/run/feed.stardust     this run's database
+#   ~bench/.config/stardustdb/stardust.license    license (0600), home /var/lib/stardust-bench
+[Unit]
+Description=StardustDB Nanode and Linode 2GB Challenge server (Rust io_uring, embedded StardustDB)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=bench
+Group=bench
+EnvironmentFile=/etc/stardust-bench.env
+# A fresh, writable copy of the read-only (0440) seed on every start.
+ExecStartPre=/bin/rm -f ${STARDUST_PATH}
+ExecStartPre=/bin/cp --reflink=auto --sparse=always /var/lib/stardust-bench/seed/feed.stardust ${STARDUST_PATH}
+ExecStartPre=/bin/chmod 0600 ${STARDUST_PATH}
+ExecStart=/opt/stardust-bench/bin/stardust-uring
+# Stardust allocates a 4 MB scratch arena per query. glibc serves blocks that
+# large with mmap and returns them on free, so each query faulted in and zeroed
+# fresh pages: 45% of a Nanode's CPU went to the kernel. Keeping them in the
+# heap took that to 2% (in-process allocator setting, allowed on the challenge box).
+Environment=GLIBC_TUNABLES=glibc.malloc.mmap_threshold=67108864:glibc.malloc.trim_threshold=1073741824
+# Stock: the challenge box's limit, giving 8 io_uring rings of 65,535 slots.
+# The tuned profile's drop-in (90-tuned.conf) raises it to 1,048,576: 1 ring.
+LimitNOFILE=65535
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+TimeoutStartSec=300
+Restart=no
+
+[Install]
+WantedBy=multi-user.target

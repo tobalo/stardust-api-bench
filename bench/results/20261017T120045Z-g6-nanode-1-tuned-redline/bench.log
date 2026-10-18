@@ -1,0 +1,26 @@
+== fresh database on SERVER_IP (g6-nanode-1, tuned); client nofile 65536
+== k6 on the client Linode CLIENT_IP (Ctrl-C stops watching, not the run)
+Started stardust-k6.service - /usr/bin/bash bench/score.sh.
+profile=tuned base_url=http://SERVER_IP k6=k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64) start=2026-10-17T12:01:07Z
+client nofile=1048576 ports=1024 65535
+warmup      1000 users 2m    PASS p95=26ms p99=31ms errors=0% reqs=18372 rps=83
+search      2500 users 2m    PASS p95=28ms p99=39ms errors=0% reqs=45778 rps=208
+search      5000 users 2m    PASS p95=34ms p99=60ms errors=0% reqs=91517 rps=415
+search     10000 users 2m    FAIL(99) p95=2082ms p99=2487ms errors=0% reqs=174594 rps=793
+search      7500 users 2m    PASS p95=100ms p99=328ms errors=0% reqs=136978 rps=622
+search      8750 users 2m    FAIL(99) p95=921ms p99=1496ms errors=0% reqs=157332 rps=715
+search      8000 users 2m    PASS p95=149ms p99=488ms errors=0% reqs=146206 rps=664
+search      8250 users 2m    PASS p95=82ms p99=622ms errors=0% reqs=150670 rps=684
+search      8500 users 2m    PASS p95=58ms p99=368ms errors=0% reqs=155295 rps=705
+confirm     8500 users 5m    PASS p95=257ms p99=848ms errors=0% reqs=316181 rps=790
+SCORE profile=tuned users=8500 (search: highest pass 8500, lowest fail 8750) end=2026-10-17T12:41:05Z
+== redline: past the limits, for the peak throughput and the breaking point
+redline    10000 users 2m    FAIL(99) p95=1082ms p99=1675ms errors=0% reqs=180323 rps=819
+redline    15000 users 2m    FAIL(99) p95=14594ms p99=53829ms errors=0.56% reqs=208913 rps=949
+redline    20000 users 2m    FAIL(99) p95=15819ms p99=59999ms errors=1.55% reqs=230806 rps=1048
+redline    30000 users 2m    FAIL(99) p95=59999ms p99=60000ms errors=9.5% reqs=250089 rps=1136
+the server stopped answering after 30000: stop
+PEAK 1136.43 req/s at 30000 users (redline run: p95 59999.74 ms, p99 60000.54 ms, errors 9.51%)
+stardust-k6.service: Deactivated successfully.
+stardust-k6.service: Consumed 29min 1.591s CPU time.
+deploy/linode/bench.sh: line 56: 68587 Terminated: 15          client 'journalctl -u stardust-k6 -f -o cat --since -10s'

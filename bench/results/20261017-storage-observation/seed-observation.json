@@ -1,0 +1,37 @@
+{
+  "captured_at": "2026-10-17T15:33:08.705581+00:00",
+  "kind": "observation_not_import",
+  "inputs_regenerated_from_pinned_generator": true,
+  "generator_sha256": "fc72b640c06ac77606db1b5d12f3ad4aab60f96c2001a6d4f70e47694b8ec401",
+  "inputs": {
+    "users.tsv": {
+      "apparent_bytes": 2482690,
+      "allocated_bytes": 2486272,
+      "sha256": "304767a5b65fd97d7a5a0abbdef4a063cfab99ff08bd045126de3ba53c139bb8",
+      "rows": 50000
+    },
+    "posts.tsv": {
+      "apparent_bytes": 83493309,
+      "allocated_bytes": 83496960,
+      "sha256": "693d608b9021baab866b2866fb2d950262fbd90e6fcef70aef10f5281d5c1293",
+      "rows": 500000
+    },
+    "likes.tsv": {
+      "apparent_bytes": 75709498,
+      "allocated_bytes": 75710464,
+      "sha256": "627c2d0aa7860a3a6e7788f700adc953e05fac967a5d9b5b21dcad06bd412b37",
+      "rows": 2016005
+    }
+  },
+  "tsv_bytes": 161685497,
+  "local_seed": {
+    "apparent_bytes": 4294967296,
+    "allocated_bytes": 3903275008
+  },
+  "compressed_seed": {
+    "apparent_bytes": 217549076,
+    "allocated_bytes": 217550848,
+    "sha256": "427365d8d972c08c9bf453c60e3a7f5a1f569acd0b9ceacb24473d60d10a3006"
+  },
+  "import_peak_rss_bytes": null
+}

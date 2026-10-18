@@ -1,0 +1,9 @@
+profile=tuned base_url=http://SERVER_IP k6=k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64) start=2026-10-17T13:44:47Z
+client nofile=1048576 ports=1024 65535
+conns     125000 users 5m    PASS p95=1ms p99=3ms errors=0% reqs=444870 rps=956
+conns     200000 users 5m    PASS p95=1ms p99=8ms errors=0% reqs=523640 rps=969
+conns     250000 users 5m    PASS p95=2ms p99=10ms errors=0% reqs=577580 rps=978
+conns     300000 users 5m    FAIL(99) p95=0ms p99=2ms errors=74.83% reqs=625400 rps=977
+the server stopped answering after 300000: stop
+300000 connections missed a threshold: stop
+CONNECTIONS held 250000 keep-alive connections for 5m within the thresholds (tried: 125000 200000 250000 300000 350000 400000 450000 500000) end=2026-10-17T14:22:25Z

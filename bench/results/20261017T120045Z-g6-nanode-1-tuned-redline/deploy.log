@@ -1,0 +1,218 @@
+== seed: 207M compressed (3.6G on disk), 20000 tokens
+== provision: g6-nanode-1 in us-central, k6 client g6-dedicated-16; firewall open to REDACTED_IP/32
+   [33m╷[0m[0m
+[33m│[0m [0m[1m[33mWarning: [0m[0m[1mNo outputs found[0m
+[33m│[0m [0m
+[33m│[0m [0m[0mThe state file either has no outputs defined, or all the defined outputs
+[33m│[0m [0mare empty. Please define an output in your configuration with the `output`
+[33m│[0m [0mkeyword and run `tofu refresh` for it to become available. If you are using
+[33m│[0m [0minterpolation, please verify the interpolated value is not empty. You can
+[33m│[0m [0muse the `tofu console` command to assist.
+[33m╵[0m[0m -> g6-nanode-1: replacing the server (a clean box, not a resize)
+[0m[1mrandom_password.root: Creation complete after 1s [id=none][0m
+[0m[1mlinode_firewall.client[0]: Creation complete after 1s [id=210909904][0m
+[0m[1mlinode_instance.client[0]: Creation complete after 1m34s [id=108389305][0m
+[0m[1mlinode_firewall.bench: Creation complete after 1s [id=210911431][0m
+[0m[1mlinode_instance.bench: Creation complete after 1m18s [id=108389365][0m
+[0m[1mlinode_ipv6_range.bench[0]: Creation complete after 2s [id=SERVER_IPV6_RANGE::][0m
+Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
+== wait for SSH on SERVER_IP
+== root@SERVER_IP
+   Ubuntu 24.04.4 LTS 6.8.0-134-generic x86_64, 1 CPU, 961 MiB RAM, 21G free
+   207M compressed seed, linux amd64 bundle; profile tuned, :80 direct
+== upload (rsync; reruns send only changes)
+feed.stardust.zst
+        5079040   2%    9.48MB/s   00:00:21
+        6946816   3%    3.56MB/s   00:00:56
+        9076736   4%    3.29MB/s   00:01:00
+       11173888   5%    3.82MB/s   00:00:51
+       13926400   6%    5.08MB/s   00:00:38
+       16973824   8%    5.06MB/s   00:00:37
+       19365888   9%    4.32MB/s   00:00:43
+       21626880  10%    4.10MB/s   00:00:45
+       23101440  11%    2.73MB/s   00:01:07
+       25886720  12%    4.76MB/s   00:00:38
+       28508160  13%    4.28MB/s   00:00:42
+       31064064  14%    4.13MB/s   00:00:43
+       33259520  15%    4.16MB/s   00:00:42
+       35356672  16%    3.52MB/s   00:00:49
+       37421056  17%    3.84MB/s   00:00:44
+       42893312  20%   10.43MB/s   00:00:15
+       45613056  21%    4.88MB/s   00:00:33
+       48136192  22%    4.79MB/s   00:00:33
+       50266112  23%    3.83MB/s   00:00:41
+       52396032  24%    3.93MB/s   00:00:40
+       53706752  25%    2.14MB/s   00:01:12
+       57049088  26%    6.10MB/s   00:00:25
+       59047936  27%    3.70MB/s   00:00:40
+       61472768  28%    4.56MB/s   00:00:32
+       63930368  29%    4.57MB/s   00:00:32
+       66420736  31%    4.70MB/s   00:00:30
+       68976640  32%    4.61MB/s   00:00:30
+       71401472  33%    4.34MB/s   00:00:32
+       73826304  34%    4.55MB/s   00:00:30
+       76349440  35%    4.46MB/s   00:00:30
+       78479360  36%    3.52MB/s   00:00:37
+       81100800  37%    4.69MB/s   00:00:27
+       83623936  38%    4.52MB/s   00:00:28
+       86212608  40%    4.93MB/s   00:00:25
+       89194496  41%    5.66MB/s   00:00:21
+       91684864  42%    3.44MB/s   00:00:34
+       94371840  43%    4.88MB/s   00:00:24
+       96141312  44%    3.32MB/s   00:00:34
+       98041856  45%    3.62MB/s   00:00:31
+      100466688  46%    4.35MB/s   00:00:25
+      103120896  47%    4.63MB/s   00:00:23
+      106102784  49%    5.41MB/s   00:00:19
+      109150208  50%    4.39MB/s   00:00:23
+      113082368  52%    7.26MB/s   00:00:13
+      115572736  53%    4.74MB/s   00:00:20
+      117604352  54%    3.85MB/s   00:00:24
+      120258560  55%    5.04MB/s   00:00:18
+      122617856  56%    4.15MB/s   00:00:21
+      125140992  58%    4.54MB/s   00:00:19
+      127762432  59%    4.59MB/s   00:00:18
+      130711552  60%    5.51MB/s   00:00:15
+      133332992  61%    4.66MB/s   00:00:17
+      136577024  63%    5.99MB/s   00:00:12
+      139165696  64%    4.94MB/s   00:00:15
+      141983744  65%    5.25MB/s   00:00:13
+      143523840  66%    2.81MB/s   00:00:25
+      146079744  67%    4.75MB/s   00:00:14
+      148996096  68%    5.19MB/s   00:00:12
+      150765568  69%    2.90MB/s   00:00:21
+      153878528  71%    5.48MB/s   00:00:11
+      155811840  72%    3.56MB/s   00:00:16
+      158498816  73%    5.11MB/s   00:00:11
+      160858112  74%    4.25MB/s   00:00:12
+      163282944  75%    3.93MB/s   00:00:13
+      165445632  76%    2.96MB/s   00:00:16
+      168460288  77%    5.69MB/s   00:00:08
+      170950656  79%    4.74MB/s   00:00:09
+      173572096  80%    4.18MB/s   00:00:10
+      175702016  81%    4.05MB/s   00:00:09
+      178323456  82%    4.58MB/s   00:00:08
+      180977664  83%    4.91MB/s   00:00:07
+      183304192  84%    3.99MB/s   00:00:08
+      185499648  85%    4.17MB/s   00:00:07
+      188383232  87%    5.39MB/s   00:00:05
+      189857792  87%    2.64MB/s   00:00:10
+      190251008  87%  622.63KB/s   00:00:42
+      191070208  88%    1.00MB/s   00:00:25
+      192970752  89%    3.49MB/s   00:00:06
+      195264512  90%    4.14MB/s   00:00:05
+      197492736  91%    3.98MB/s   00:00:04
+      199786496  92%    4.24MB/s   00:00:03
+      202113024  93%    4.43MB/s   00:00:03
+      204734464  94%    4.50MB/s   00:00:02
+      206864384  95%    4.04MB/s   00:00:02
+      209387520  96%    4.02MB/s   00:00:01
+      212500480  98%    5.52MB/s   00:00:00
+      214794240  99%    4.04MB/s   00:00:00
+      216563712 100%    3.32MB/s   00:00:00
+      217549076 100%    4.35MB/s   00:00:47 (xfer#1, to-check=0/1)
+== build on the box
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+ systemctl restart packagekit.service
+
+Service restarts being deferred:
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+   built in 42 s: 5428552 bytes, 0 shared StardustDB libraries
+== install
+   stopped: apt-daily apt-daily-upgrade unattended-upgrades man-db motd-news fwupd-refresh e2scrub_all dpkg-db-backup snapd snapd packagekit
+   swap: off (0 MB)
+== profile: tuned
+   == kernel 6.8.0-134-generic
+     fs.nr_open                         1048576
+     fs.file-max                        2097152
+     kernel.io_uring_disabled           0
+     net.core.somaxconn                 65535
+     net.ipv4.tcp_max_syn_backlog       65535
+     net.ipv4.ip_local_port_range       1024 65535
+     net.ipv4.tcp_tw_reuse              1
+     net.ipv4.tcp_rmem                  4096 65536 4194304
+     net.ipv4.tcp_wmem                  4096 65536 4194304
+     vm.dirty_background_ratio          5
+     vm.dirty_ratio                     10
+     net.netfilter.nf_conntrack_max     -
+   == limits
+     this shell nofile soft/hard        1024 / 1048576
+     systemd DefaultLimitNOFILE         1048576
+     stardust-bench LimitNOFILE         1048576
+   == applied; log in again for the new shell limits, restart services for theirs
+== start
+   listening [::]:80; io_uring, 1 rings x 524280 direct descriptors; Stardust group commit
+== 42 API checks against the io_uring server
+   Testing http://127.0.0.1:80
+   -- golden reads (fresh database)
+     ok   GET /feed == golden -> 200
+     ok   GET /feed content-type (application/json)
+     ok   GET /posts/1 == golden -> 200
+     ok   GET /posts/250000 == golden -> 200
+     ok   GET /posts/500000 == golden -> 200
+     ok   GET /posts/:id content-type (application/json)
+   -- health, 404s, id validation
+     ok   GET /health -> 200 {"status":"ok","db":"ok","uptime_s":1}
+     ok   GET /nope -> 404
+     ok   GET /posts/0 -> 400
+     ok   GET /posts/-1 -> 400
+     ok   GET /posts/abc -> 400
+     ok   GET /posts/1.5 -> 400
+     ok   GET /posts/999999999 -> 404
+   -- auth
+     ok   POST /posts, no token -> 401
+     ok   POST /posts, Basic auth -> 401
+     ok   POST /posts, garbage token -> 401
+     ok   POST /posts, bad signature -> 401
+     ok   POST /posts, alg=none -> 401
+     ok   POST /posts, expired token -> 401
+     ok   POST /posts, sub not an integer -> 401
+     ok   POST /posts, no username -> 401
+     ok   POST /posts/abc/like, no token (auth before id) -> 401
+   -- create validation
+     ok   empty body -> 400
+     ok   whitespace body -> 400
+     ok   numeric body -> 400
+     ok   missing body -> 400
+     ok   malformed JSON -> 400
+     ok   501-char body -> 400
+   -- create, like, read back
+     ok   special characters round-trip (trimmed) -> 201
+     ok   create 500-char post -> 201
+     ok   POST /posts content-type (application/json)
+     ok   created_at format 2026-10-17T11:59:31.733Z
+     ok   created_at is now (UTC, 0s)
+     ok   like (first) -> 201
+     ok   like (repeat) -> 200
+     ok   like missing post -> 404
+     ok   like bad id (with token) -> 400
+     ok   read back, like_count 1 -> 200
+     ok   like on a seeded post is counted at once (12)
+     ok   feed has 20 posts
+     ok   new post is at the top of the feed
+     ok   feed entry matches the post
+   passed=42 failed=0
+== restart on a fresh database
+== ready: http://SERVER_IP (tuned, LimitNOFILE 1048576)
+== IPv6 range: 8 more server addresses on eth0 (SERVER_IPV6_1 ...)
+== wait for SSH on the k6 client CLIENT_IP
+== client root@CLIENT_IP
+   stopped: apt-daily apt-daily-upgrade unattended-upgrades man-db motd-news fwupd-refresh e2scrub_all dpkg-db-backup snapd snapd packagekit
+   k6 v2.3.0, 16 CPU, 32093 MiB RAM, ports 1024-65535
+
+== ready to benchmark: http://SERVER_IP   (g6-nanode-1, tuned, systemd, direct :80)
+   health:         {"status":"ok","db":"ok","uptime_s":52}
+   load client:    the k6 client Linode CLIENT_IP (g6-dedicated-16)
+   score it:       bash deploy/linode/bench.sh             (the challenge procedure)
+   one load test:  bash deploy/linode/bench.sh --vus 1000
+   ssh:            ssh -i deploy/linode/.ssh/id_ed25519 root@SERVER_IP
+   tear down:      make down

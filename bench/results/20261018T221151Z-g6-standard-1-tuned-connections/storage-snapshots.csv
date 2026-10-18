@@ -1,0 +1,4 @@
+phase,t,db_id,db_apparent_bytes,db_allocated_bytes,seed_apparent_bytes,seed_allocated_bytes,fs_available_bytes,svc_pid,svc_start_ticks,svc_write_bytes,svc_cancelled_write_bytes,svc_peak_rss_bytes
+before_reset,1792361510,2048:264011,589520896,442523648,4294967296,3898347520,41021112320,0,,,,
+session_start,1792361538,2048:264011,4294967296,2881843200,4294967296,3898347520,38581768192,967,4389,0,0,22433792
+session_end,1792362389,2048:264011,4294967296,2881916928,4294967296,3898347520,38581243904,0,,,,

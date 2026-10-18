@@ -1,0 +1,23 @@
+plan_cpu=AMD EPYC 7713 64-Core Processor
+vcpus=1
+kernel=6.8.0-134-generic
+mem_total_mb=1967
+swap_mb=0
+seed_archive_sha256=427365d8d972c08c9bf453c60e3a7f5a1f569acd0b9ceacb24473d60d10a3006
+filesystem_type=ext2/ext3
+service_NRestarts=0
+service_MemoryPeak=1772945408
+service_CPUUsageNSec=213961230000
+service_LimitNOFILE=1048576
+net.core.somaxconn=65535
+net.ipv4.tcp_max_syn_backlog=65535
+net.ipv4.ip_local_port_range=1024 65535
+fs.nr_open=1048576
+vm.dirty_ratio=10
+listening [::]:80; io_uring, 1 rings x 524280 direct descriptors; Stardust group commit
+client_k6=k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64)
+client_os=Linode g6-dedicated-16, same region
+client_nofile=1048576
+target=SERVER_IP
+plan=g6-standard-1
+profile=tuned

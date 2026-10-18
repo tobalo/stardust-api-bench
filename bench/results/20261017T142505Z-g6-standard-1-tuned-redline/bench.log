@@ -1,0 +1,44 @@
+== fresh database on SERVER_IP (g6-standard-1, tuned); client nofile 65536
+== k6 on the client Linode CLIENT_IP (Ctrl-C stops watching, not the run)
+Started stardust-k6.service - /usr/bin/bash bench/score.sh.
+profile=tuned base_url=http://SERVER_IP k6=k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64) start=2026-10-17T14:25:34Z
+client nofile=1048576 ports=1024 65535
+warmup      1000 users 2m    PASS p95=25ms p99=31ms errors=0% reqs=18311 rps=83
+search      2500 users 2m    PASS p95=27ms p99=36ms errors=0% reqs=45814 rps=208
+search      5000 users 2m    PASS p95=30ms p99=48ms errors=0% reqs=91551 rps=416
+search     10000 users 2m    PASS p95=77ms p99=575ms errors=0% reqs=182648 rps=830
+search     20000 users 2m    FAIL(99) p95=16316ms p99=28932ms errors=0.59% reqs=237926 rps=1081
+search     15000 users 2m    FAIL(99) p95=2622ms p99=30924ms errors=0.94% reqs=221215 rps=1005
+search     12500 users 2m    FAIL(99) p95=1256ms p99=1669ms errors=0% reqs=216285 rps=983
+search     11250 users 2m    FAIL(99) p95=425ms p99=1003ms errors=0% reqs=204328 rps=928
+search     10500 users 2m    PASS p95=102ms p99=807ms errors=0% reqs=191777 rps=871
+search     10750 users 2m    PASS p95=367ms p99=978ms errors=0% reqs=195413 rps=888
+search     11000 users 2m    FAIL(99) p95=382ms p99=1096ms errors=0% reqs=200339 rps=910
+confirm    10750 users 5m    FAIL(99) p95=333ms p99=1069ms errors=0% reqs=399421 rps=998
+confirm    10500 users 5m    PASS p95=302ms p99=887ms errors=0% reqs=390607 rps=976
+SCORE profile=tuned users=10500 (search: highest pass 10750, lowest fail 11000) end=2026-10-17T15:19:37Z
+== redline: past the limits, for the peak throughput and the breaking point
+redline    10000 users 2m    PASS p95=62ms p99=757ms errors=0% reqs=182185 rps=828
+redline    15000 users 2m    FAIL(99) p95=2293ms p99=16201ms errors=0% reqs=233167 rps=1059
+redline    20000 users 2m    FAIL(99) p95=14653ms p99=23150ms errors=0.04% reqs=246058 rps=1118
+redline    30000 users 2m    FAIL(99) p95=59998ms p99=60000ms errors=8.15% reqs=271033 rps=1231
+the server stopped answering after 30000: stop
+PEAK 1231.62 req/s at 30000 users (redline run: p95 59998.25 ms, p99 60000.48 ms, errors 8.16%)
+stardust-k6.service: Deactivated successfully.
+stardust-k6.service: Consumed 39min 52.061s CPU time.
+deploy/linode/bench.sh: line 154: n: command not found
+== k6 on the client Linode CLIENT_IP (Ctrl-C stops watching, not the run)
+the server stopped answering after 30000: stop
+PEAK 1231.62 req/s at 30000 users (redline run: p95 59998.25 ms, p99 60000.48 ms, errors 8.16%)
+stardust-k6.service: Deactivated successfully.
+stardust-k6.service: Consumed 39min 52.061s CPU time.
+Started stardust-k6.service - /usr/bin/bash bench/score.sh.
+profile=tuned base_url=http://SERVER_IP k6=k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64) start=2026-10-17T15:34:43Z
+client nofile=1048576 ports=1024 65535
+warmup      1000 users 2m    PASS p95=20ms p99=23ms errors=0% reqs=18300 rps=83
+search      2500 users 2m    PASS p95=20ms p99=26ms errors=0% reqs=45829 rps=208
+Stopping stardust-k6.service - /usr/bin/bash bench/score.sh...
+stardust-k6.service: Deactivated successfully.
+Stopped stardust-k6.service - /usr/bin/bash bench/score.sh.
+stardust-k6.service: Consumed 1min 20.271s CPU time.
+deploy/linode/bench.sh: line 163: syntax error near unexpected token `('

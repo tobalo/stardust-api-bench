@@ -1,0 +1,43 @@
+# StardustDB release bundles and downloads: licensed, never redistributed here.
+/third_party/
+*.zip
+*.minisig
+
+# Secrets: license tokens, API tokens, keys.
+.env
+*.env
+*.license
+.ssh/
+*.pem
+id_rsa*
+id_ed25519*
+
+# Seed database and tokens: rebuilt with `make seed`.
+*.stardust
+*.stardust.zst
+/seed/tokens.json
+
+# The challenge's files, fetched pinned by bench/upstream.sh.
+/bench/.upstream/
+
+# Build output.
+target/
+__pycache__/
+
+# Linode deploy state: SSH keys, OpenTofu state, this machine's variables, the last deploy log.
+/deploy/linode/.ssh/
+/deploy/linode/.terraform/
+/deploy/linode/*.tfstate*
+/deploy/linode/*.auto.tfvars.json
+/deploy/linode/up.log
+*.tfvars
+crash.log
+
+# Results: sessions are committed as raw evidence, except k6's per-run web dashboards
+# (<run>-<users>.html, ~180 KB each; the run's .log and .json hold its numbers),
+# comparisons made by `make report`, and a session's console log before redaction.
+/bench/results/*/*-*.html
+/bench/results/compare.html
+.bench.log.unredacted
+
+.DS_Store
