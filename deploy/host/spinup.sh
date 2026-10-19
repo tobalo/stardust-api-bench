@@ -62,7 +62,7 @@ case "$(remote 'uname -m')" in x86_64) ARCH=amd64 ;; *) ARCH=arm64 ;; esac
 BUNDLE="$ROOT/third_party/stardust-linux_$ARCH"
 [ -d "$BUNDLE" ] || die "no StardustDB bundle for linux $ARCH: bash deploy/bundle.sh <stardust-...-linux-$ARCH.zip>"
 SEED_SUM="$( (sha256sum 2>/dev/null || shasum -a 256) < "$SEED" | cut -d' ' -f1)"
-echo "   $(du -h "$SEED" | cut -f1) compressed seed, linux $ARCH bundle; profile $PROFILE, :80 direct"
+echo "   $(du -h "$SEED" | cut -f1) compressed seed, StardustDB $(grep -o '"version": *"[^"]*"' "$BUNDLE/manifest.json" | cut -d'"' -f4) linux $ARCH; profile $PROFILE, :80 direct"
 
 echo "== upload (rsync; reruns send only changes)"
 remote "command -v rsync >/dev/null && command -v zstd >/dev/null || { $SUDO env DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout=900 update -qq && $SUDO env DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout=900 install -y -qq rsync zstd >/dev/null; }"

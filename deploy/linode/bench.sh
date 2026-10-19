@@ -105,6 +105,8 @@ collect() {
   on 'echo "plan_cpu=$(lscpu | sed -n "s/^Model name:[[:space:]]*//p")"; echo "vcpus=$(nproc)"; echo "kernel=$(uname -r)";
       echo "mem_total_mb=$(free -m | awk "/^Mem:/{print \$2}")"; echo "swap_mb=$(free -m | awk "/^Swap:/{print \$2}")";
       echo "seed_archive_sha256=$(cat /var/lib/stardust-bench/seed/feed.stardust.sha256 2>/dev/null)";
+      m=~/stardust-bench-staging/src/third_party/stardust/manifest.json;
+      for k in version revision build_date; do echo "stardust_$k=$(grep -o "\"$k\": *\"[^\"]*\"" $m | cut -d\" -f4)"; done;
       echo "filesystem_type=$(stat -f -c %T /var/lib/stardust-bench/run)";
       systemctl show stardust-bench -p LimitNOFILE -p MemoryPeak -p CPUUsageNSec -p NRestarts | sed "s/^/service_/";
       for k in net.core.somaxconn net.ipv4.tcp_max_syn_backlog net.ipv4.ip_local_port_range fs.nr_open vm.dirty_ratio; do echo "$k=$(sysctl -n $k | tr "\t" " ")"; done;

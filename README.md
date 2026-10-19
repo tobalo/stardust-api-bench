@@ -44,9 +44,10 @@ flowchart LR
 
 | | |
 |---|---|
-| Servers | Linode `g6-nanode-1` and `g6-standard-1`, us-central, 1 shared vCPU (AMD EPYC 7713) |
+| **StardustDB** | **`alpha-2610112101`** (revision `9b9aee3`, built 2026-10-11, ABI 1), linked statically |
+| Servers | Linode `g6-nanode-1` and `g6-standard-1`, us-central, 1 shared vCPU (AMD EPYC 7713; one session on a 7642) |
 | OS | Ubuntu 24.04, Linux 6.8.0-134, tuned profile ([`tune-host.sh`](deploy/host/tune-host.sh)), no swap |
-| Server | Rust 1.94.0 (edition 2024), crates pinned in [`Cargo.lock`](server/Cargo.lock), StardustDB linked statically |
+| Server | Rust 1.94.0 (edition 2024), crates pinned in [`Cargo.lock`](server/Cargo.lock) |
 | Load | k6 v2.3.0 (go1.26.8) on a Linode `g6-dedicated-16` in the same region |
 | Challenge | commit [`026bdb6`](https://github.com/arjaythedev/twelve-dollar-server-challenge/tree/026bdb68d94d0d932bb5981321ad82c70618d752), SHA-256 checked by [`upstream.sh`](bench/upstream.sh) |
 | Infrastructure | OpenTofu 1.13.1, Linode provider 4.7.0 |
@@ -68,7 +69,9 @@ make up TYPE=g6-standard-1 && make redline && make connections        # Linode 2
 make down                                                             # destroy the servers and firewalls
 ```
 
-Each session writes `bench/results/<time>-<plan>-<profile>/` with k6's raw output and a `report.html`. For the
+Each session writes `bench/results/<time>-<plan>-<profile>/` with k6's raw output and a `report.html`, and records
+the deployed StardustDB version in its `server.txt`. To compare versions, run the same steps with the new bundle in
+`third_party/`, then `make report RESULTS="bench/results/<old> bench/results/<new>"`. For the
 connection ceiling, run one step per freshly booted server (`make connections CONNS=300000`): a second ramp in the
 same boot fails early.
 

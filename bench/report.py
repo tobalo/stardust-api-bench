@@ -325,6 +325,7 @@ def session_report(s):
              tile(f"{peak_rss:,.0f} MB", "server RSS peak"),
              tile(f"{max(steal):.1f}%" if steal else "—", "CPU steal peak"),
              tile(sv.get("vcpus", "?") + " vCPU", sv.get("plan_cpu", "")[:40] or "CPU"),
+             tile(sv.get("stardust_version", "not recorded"), "StardustDB " + sv.get("stardust_revision", "")[:7]),
              tile(sv.get("service_LimitNOFILE", "?"), "service LimitNOFILE")]
     out = head + ['<div class="tiles">', *tiles, '</div>']
 
@@ -413,16 +414,18 @@ def session_report(s):
 
 def compare_report(sessions):
     out = ["<h1>StardustDB Nanode and Linode 2GB Challenge: comparison</h1>", f'<p class="sub">{len(sessions)} sessions</p>',
-           "<div class='wrap'><table><tr><th>session</th><th>plan</th><th>profile</th><th>score</th><th>best req/s</th><th>runs</th></tr>"]
+           "<div class='wrap'><table><tr><th>session</th><th>plan</th><th>profile</th><th>StardustDB</th><th>score</th><th>best req/s</th><th>runs</th></tr>"]
     for s in sessions:
         sv = s["server"]
         best = max((num(r.get("rps"), 0) for r in s["runs"]), default=0)
         score = f'{s["score"]:,}' if s["score"] is not None else "—"
         out.append(f'<tr><td><a href="{html.escape(os.path.relpath(os.path.join(s["dir"], "report.html")))}">{html.escape(s["name"])}</a></td>'
-                   f'<td>{html.escape(sv.get("plan", ""))}</td><td>{html.escape(sv.get("profile", ""))}</td><td>{score}</td>'
+                   f'<td>{html.escape(sv.get("plan", ""))}</td><td>{html.escape(sv.get("profile", ""))}</td>'
+                   f'<td>{html.escape(sv.get("stardust_version", "—"))}</td><td>{score}</td>'
                    f'<td>{best:,.0f}</td><td>{len(s["runs"])}</td></tr>')
     out.append("</table></div>")
-    label = lambda s: f'{s["server"].get("plan", s["name"])} {s["server"].get("profile", "")}'.strip()
+    label = lambda s: " ".join(filter(None, [s["server"].get("plan", s["name"]), s["server"].get("profile"),
+                                             s["server"].get("stardust_version")]))
     pts = lambda s, key: [(num(r["users"]), num(r.get(key))) for r in s["runs"]]
     out.append(chart("p95 latency against users", [(label(s), PALETTE[i % 6], pts(s, "p95_ms")) for i, s in enumerate(sessions)],
                      "virtual users", "ms", scatter=True, hlines=[(500, "p95 limit 500 ms")]))

@@ -7,7 +7,9 @@ replaced with `SERVER_IP`, and the license status line is removed. Nothing else 
 
 Setup for every session:
 - Ubuntu 24.04 (kernel 6.8) in us-central (Dallas), tuned host profile, no swap;
-- StardustDB embedded in the Rust io_uring server (`server/`), serving :80 directly;
+- StardustDB `alpha-2610112101` (revision `9b9aee3`, built 2026-10-11) embedded in the Rust io_uring server
+  (`server/`), serving :80 directly. Every session from 2026-10-16 to 2026-10-18 used this bundle, unchanged since
+  2026-10-11. Sessions after these record the version in `server.txt` (`stardust_version`);
 - k6 2.3.0 on a dedicated Linode in the same region.
 
 ## What a session folder holds
@@ -21,7 +23,7 @@ Setup for every session:
 | `host.csv` | `deploy/host/sample-host.sh` | Server CPU (user, system, iowait, softirq, steal), memory, network, disk and TCP, every second; new sessions also include file allocation and process I/O counters, and from 2026-10-18 21:26 UTC unreclaimable kernel slab, orphaned sockets and IPv6 sockets |
 | `storage-snapshots.csv` | `deploy/host/storage.sh` via `deploy/linode/bench.sh` | New sessions: seed/run file sizes and allocation before reset, at session start, and at session end; filesystem free space and process I/O counters |
 | `app-stats.log` | the server | Every 5 s: requests by kind, read time, group-commit rounds and commit time, open connections |
-| `server.txt` | `deploy/linode/bench.sh` | CPU model, kernel, memory, limits and sysctls of the server; the k6 version and client plan |
+| `server.txt` | `deploy/linode/bench.sh` | CPU model, kernel, memory, limits and sysctls of the server; the StardustDB version (sessions after 2026-10-18); the k6 version and client plan |
 | `bench.log` | `deploy/linode/bench.sh` | The session's whole console output, as it ran (from 2026-10-17) |
 | `deploy.log` | `deploy/linode/up.sh` | The deploy before the session: provisioning, the build, all 42 API checks, tuning (from 2026-10-17) |
 | `dmesg-*.txt` | the server's kernel log | Saved after a step that failed or ended the server: the OOM killer's lines and socket counters |
