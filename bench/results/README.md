@@ -3,6 +3,8 @@
 Every session behind the numbers in the top-level README, as the tools wrote them. Server IP addresses are
 replaced with `SERVER_IP`, and the license status line is removed. Nothing else is edited.
 
+[`latest.html`](latest.html) shows the headline measurements as tables and charts on one page, read from these files.
+
 Setup for every session:
 - Ubuntu 24.04 (kernel 6.8) in us-central (Dallas), tuned host profile, no swap;
 - StardustDB embedded in the Rust io_uring server (`server/`), serving :80 directly;
